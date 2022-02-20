@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { excerpt } from '../components';
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
@@ -18,21 +19,13 @@ export default function Home() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
         <div className="lg:col-span-8 col-span-1">
-          {writing.map((post, index) => (
+          {writing.map((e) => (
             <div>
-              {writing.title}
-              {writing.excerpt}
+              <excerpt e={e} key={e.title}/>
             </div>
           ))}
         </div>
-      <div className="lg:col-span-4 col-span-1">
-        <div className="lg:sticky relatve top-8">
-          
-        </div>
       </div>
       </div>
-
-
-    </div>
   )
 }
