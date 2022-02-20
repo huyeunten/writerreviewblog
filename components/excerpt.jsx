@@ -1,10 +1,14 @@
-import React from 'react'
+import React from 'react';
+import moment from 'moment';
+import Link from 'next/link'; 
 
 const excerpt = ({ excerpt }) => {
+    console.log(excerpt);
   return (
     <div>
-        {excerpt.title}
-        {excerpt.text}
+        <div>
+
+        </div>
     </div>
   )
 }

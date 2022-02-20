@@ -2,13 +2,14 @@ import Head from 'next/head'
 import { excerpt } from '../components';
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import { getExcerpts } from '../services';
 
 const writing = [
   { title: 'test title 1', excerpt: 'test excerpt 1'},
   { title: 'test title 2', excerpt: 'test excerpt 2'},
 ];
 
-export default function Home() {
+export default function Home({ excerpts }) {
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
@@ -30,4 +31,11 @@ export default function Home() {
       </div>
       </div>
   )
+}
+
+export async function getStaticProps() {
+  const e = (await getExcerpts()) || []; 
+  return {
+    props: { e }
+  }
 }
